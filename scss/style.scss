@@ -1,0 +1,348 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: $fontFamily;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	background: rgba(242, 242, 242, 0.75);
+	width: 100%;
+
+}
+
+form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	input, select{
+		font: inherit;
+		margin: 10px;
+		padding: 0 15px 0 15px;
+	
+	}
+
+	select {
+		font-size: 0.75em;
+		cursor: pointer;
+	}
+
+	[type='submit'] {
+		@include clear();
+		cursor: pointer;
+		transition: all 0.5s;
+
+		&:hover {
+			background: green;
+			color: white;
+			transition: all 0.5s;
+		}
+	}
+}
+
+/*Hide items*/
+
+[hidden] {
+	display: none !important;
+}
+
+.items {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	> li {			
+		@include setHW($itemHeight, $itemWidth);
+		
+		overflow-y: auto;
+		border: $defBorder;
+		box-sizing: border-box;
+		margin: 15px;
+		
+		ul {
+			margin-left: 20px;
+			padding: 5px 0 0 15px;
+		}
+	}
+
+	img { width: 100%; }
+}
+
+table {
+	width: 100%;
+	margin: auto 0;
+	border-collapse: collapse;		
+
+	td, th {
+		border-bottom: 1px solid lightgray;
+		text-align: center;
+	}
+}
+
+button {
+	@include clear();
+	
+	transition: all 0.5s;
+
+	&:hover {
+		cursor: pointer;
+		background: silver;
+		transition: all 0.5s;
+	}
+}
+
+.theTimer { 
+	font-size: 1.5em;
+	@include flexColumnCenter();
+
+	div {
+		font-size: 1.5em;
+		font-weight: bold;
+		border: none;
+	}
+	
+	button {
+		margin:25px;
+		padding: 10px;	
+	}
+}
+
+
+// calendar 
+
+#cal {
+	td, th {
+		border: 1px solid lightgray;
+		width: $itemWidth/7;
+	}
+	
+	tbody td:hover{
+		cursor: default; 
+		background: lightblue;
+	}
+
+	td:last-child, th:last-child {
+		border-right: none;
+	}
+
+	tfoot {
+		cursor: pointer;
+		transition: all 250ms;
+		background-color: $buttonBG;
+		&:hover {
+			background: silver;
+			transition: all 250ms;
+		}
+	}
+
+}
+
+// Sort List
+
+#sortList {
+	input {
+		margin: 0;
+		width: 100%;
+	}
+
+	th { 
+		cursor: pointer; 
+		&:hover {
+			background: #f2f2f2;
+		}
+	}
+
+	[type='submit'] { padding: 2px 0 2px 0; }
+}
+
+// LearnJS Styles And Classes
+
+#stylesAndClasses {
+	position: relative;
+	min-height: 100px;
+	
+	.notification {
+		position: absolute;
+		margin: auto 0;
+		text-align: center;
+	}
+
+}
+
+.hiddingByTaskStyles {
+	animation: backgroundTaskStyles 250ms forwards infinite alternate;
+
+}
+
+@keyframes backgroundTaskStyles {
+	from {background: white;} to {background: pink;};
+}
+
+
+#scrollBarWidth {
+	font-size: 1.5em;
+	@include flexColumnCenter();
+	
+	span {
+		text-align: center;
+		padding: 10px;
+	}
+}
+
+
+#field {
+	border: 10px groove black;
+	background-color: #00FF00;
+	position: relative;
+	min-height: $itemHeight/1.5;
+	max-height: $itemHeight;
+	max-width: $itemWidth;
+	cursor: pointer;
+	overflow: hidden;
+	
+	#ball {
+		width: $itemWidth/7;
+    	position: absolute;
+    	transition: all 0.5s;
+    }
+}
+
+#eventsIntroduce {
+	@include flexColumnCenter();
+		
+	* {
+			padding: 10px;	
+			font-size: 1.05em;
+	}
+
+	div {
+		border-bottom: 1px solid lightgray;
+		display: flex;
+		flex-direction: column;
+
+		button {
+			margin: auto;
+			width: 200px;
+		}
+
+		span {
+			padding-bottom: 0;
+		}
+
+		&:last-child { border: none; }	
+	}
+}
+
+#carousel {
+	@include flexColumnCenter();
+	overflow: hidden;
+	
+	> div {
+		display: flex;
+	}
+
+	#galery {
+		width: 1000%;
+		background: #f2f2f2;
+		transition: margin 0.25s;
+
+		img {
+			width: $itemWidth/3;
+			height: auto;
+		}
+	}
+
+	#buttons {
+		margin: 0 auto 0 auto;
+		font-size: 1.5em;
+
+		button {
+			padding: 15px;
+			margin: 50px ;
+		}
+
+	}
+}
+
+#delegation {
+	article {
+		position: relative;
+		margin: 10px;
+		padding: 5px;
+		background-color: #f2f2f2;
+
+		p {
+			text-align: justify;
+			text-indent: 10px;
+		}
+	}
+
+	.remove {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+
+		background: none;
+		transform: scaleX(1.5);
+
+		&:hover{
+			color: crimson;
+			transition: all 0.5s;
+		}
+	}
+
+
+	#nestedList {
+		li {
+			cursor: pointer;
+		}
+	}
+
+	#prompt {
+		// position: relative;
+		display: flex;
+		justify-content: space-between;
+
+		button {
+			width: 100%;
+			padding: 5px;
+			margin: 10px;
+		}
+
+		span {
+			position: fixed;
+			font-size: 0.75em;
+			background-color: lightyellow;
+			padding: 5px 0 5px 0;
+			border: $defBorder;
+			border-radius: 5px;
+			z-index: 1;
+			text-align: center;
+		}
+	}
+}
+
+
+// screen width is smaller than $mobileWidth
+
+@media screen and (max-width: $mobileWidth) {
+	
+	.items {
+		justify-content: center;
+		
+		> li {
+			height: auto;
+			max-height: 80vh;
+			width: 350px;
+		}
+	}
+}

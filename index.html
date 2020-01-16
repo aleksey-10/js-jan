@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width">
+    <title>JS DOM Learning</title>
+
+    <script src="https://kit.fontawesome.com/ef1e88a47b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<header>
+		<form class='filter'>
+			<select multiple size='3' required>
+			</select>
+			<input type="submit" name="submit" value="Accept">
+
+		</form>
+	</header>
+	
+	<main>
+		<ul class='items'>
+			<li id="delegation" title="Delegations">
+				<div id='articles'>
+					<article>
+						<h3>Article #1</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quibusdam blanditiis necessitatibus sunt impedit porro optio, soluta, explicabo repellendus quo.</p>
+					</article>
+					
+					<article>
+						<h3>Article #2</h3>
+						<div id='nestedList'></div>
+					</article>
+
+					<article>
+						<h3>Article #3</h3>
+			
+						<div id="prompt">
+							<button data-tooltip="this prompt is longer than element">First button</button>
+							<button data-tooltip="HTML<br>prompt">One more button</button>
+						</div>
+			
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, quae incidunt ea dicta quas vero fugit at, eos, asperiores sapiente ut doloremque cum iure consequuntur quibusdam unde quo quam. Porro et, molestiae accusantium veniam saepe, corrupti est excepturi deserunt vel soluta temporibus, impedit quaerat optio repudiandae aut non, debitis obcaecati. Est sunt earum in, eveniet ea cum dolores porro distinctio similique deleniti, tenetur itaque, quaerat, eius. Explicabo enim voluptas necessitatibus perferendis veniam sapiente incidunt itaque debitis qui labore. Accusamus, recusandae perspiciatis dignissimos voluptates! Est accusamus minus corrupti at quos, ipsam fugiat, inventore, tempora alias voluptatum deleniti? Voluptatum commodi tenetur velit?</p>
+					</article>
+				</div>
+
+			</li>
+			<li id="carousel" title="Carousel"></li>
+			<li id="eventsIntroduce" title="Events introducing"></li>
+			<li id='field' title="Field width ball"><img src="https://en.js.cx/clipart/ball.svg" id="ball"></li>
+			<li id='scrollBarWidth' title="Get scrollbar width"></li>
+			<li id="stylesAndClasses" title="Styles And Classes" hidden></li>
+
+			<li title="Create Table" id='sortList'>
+				<form class="filter">
+					<input type="text" name="firstName" placeholder="First Name" required>
+					<input type="text" name="lastName" placeholder="Last Name">
+					<input type="number" name="age" min="0" placeholder="Age">
+					<input type="submit" name="submit" value="OK">
+				</form>
+				<table>
+					
+				</table>
+			</li>
+			
+			<li title="Calendar" id='cal'></li>		
+			<li title='Watch' id='timerContainer' class="theTimer"></li>
+		</ul>
+	</main>
+	
+	<script type="text/javascript" src="js/settings.js"></script>
+
+	<script type="text/javascript" src="js/items/items.js"></script>
+
+	<script type="text/javascript" src="js/items/calendar.js"></script>
+	<script type="text/javascript" src="js/items/sort.js"></script>
+	<script type="text/javascript" src="js/items/events_intro.js"></script>
+	<script type="text/javascript" src="js/items/delegations.js"></script>
+</body>
+</html>
